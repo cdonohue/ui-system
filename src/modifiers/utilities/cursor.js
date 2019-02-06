@@ -10,6 +10,6 @@ const cursorVariants = [
 export default Object.keys(cursorVariants).reduce((classNames, variant) => {
   return {
     ...classNames,
-    [`cursor-${variant}`]: `cursor: ${cursorVariants[variant]};`,
+    [`cursor-${variant}`]: [`cursor: ${cursorVariants[variant]}`],
   }
 }, {})

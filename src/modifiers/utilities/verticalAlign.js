@@ -10,6 +10,6 @@ const verticalAlignments = [
 export default verticalAlignments.reduce((classNames, modifier) => {
   return {
     ...classNames,
-    [`align-${modifier}`]: `vertical-align: ${verticalAlignments[modifier]};`,
+    [`align-${modifier}`]: [`vertical-align: ${verticalAlignments[modifier]}`],
   }
 }, {})

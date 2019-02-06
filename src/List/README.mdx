@@ -1,0 +1,36 @@
+---
+name: List
+---
+
+import { Playground, PropsTable } from "docz"
+
+import List from "."
+import ListItem from "../ListItem"
+
+# List
+
+<PropsTable of={List} />
+
+## Ordered List
+
+<Playground>
+  <List is="ol">
+    <ListItem>One</ListItem>
+    <ListItem>Two</ListItem>
+    <ListItem>Three</ListItem>
+    <ListItem>Four</ListItem>
+    <ListItem>Five</ListItem>
+  </List>
+</Playground>
+
+## Unordered List
+
+<Playground>
+  <List is="ul">
+    <ListItem>One</ListItem>
+    <ListItem>Two</ListItem>
+    <ListItem>Three</ListItem>
+    <ListItem>Four</ListItem>
+    <ListItem>Five</ListItem>
+  </List>
+</Playground>

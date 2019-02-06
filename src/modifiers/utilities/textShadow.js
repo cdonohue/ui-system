@@ -5,6 +5,6 @@ export default Object.keys(textShadows).reduce((classNames, key) => {
 
   return {
     ...classNames,
-    [`text-shadow${modifier}`]: `text-shadow: ${textShadows[key]};`,
+    [`text-shadow${modifier}`]: [`text-shadow: ${textShadows[key]}`],
   }
 }, {})

@@ -5,6 +5,7 @@ import { css, cx } from "emotion"
 
 import modifiers from "../modifiers"
 import config from "../modifiers/config"
+import reset from "../modifiers/reset"
 
 function generateRandomString() {
   const x = 2147483648
@@ -13,30 +14,21 @@ function generateRandomString() {
     Math.abs(Math.floor(Math.random() * x) ^ Date.now()).toString(36)}`
 }
 
-const baseReset = css`
-  /* Reset margin, padding, and border */
-  margin: 0;
-  padding: 0;
-  border-width: 0;
-  border-style: solid;
-  border-color: ${config.borderColors.default};
-
-  /* Typography */
-  font-family: inherit;
-  font-size: ${config.textSizes.base};
-  line-height: inherit;
-  vertical-align: baseline;
-
-  /* Layout */
-  box-sizing: border-box;
-  &:before,
-  &:after {
-    box-sizing: inherit;
-  }
-`
+function mapRules(rules, isImportant = false) {
+  console.log(rules)
+  return rules.map((rule) => {
+    return isImportant ? `${rule} !important;` : `${rule};`
+  })
+}
 
 function Box(props) {
-  const { children, className, tag = "div", ...remainingProps } = props
+  const {
+    children,
+    className,
+    isLocked,
+    tag = "div",
+    ...remainingProps
+  } = props
 
   const uniqueId = generateRandomString()
 
@@ -52,8 +44,10 @@ function Box(props) {
 
   const activeModifiers = userClasses
     .filter((name) => modifiers[name])
-    .map((name) => modifiers[name])
-    .join("\n")
+    .map((name) => mapRules(modifiers[name], isLocked).join(""))
+    .join("")
+
+  const baseReset = mapRules(reset.base, isLocked).join("")
 
   const normalizedStyles = css`
     ${tag}#${uniqueId}& {
@@ -66,6 +60,10 @@ function Box(props) {
   remainingProps.className = cx(normalizedStyles, userClasses)
 
   return React.createElement(tag, remainingProps, children)
+}
+
+Box.defaultProps = {
+  tag: "div",
 }
 
 Box.propTypes = {

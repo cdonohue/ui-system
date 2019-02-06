@@ -1,3 +1,3 @@
 export default {
-  "outline-none": "outline: 0;",
+  "outline-none": ["outline: 0"],
 }

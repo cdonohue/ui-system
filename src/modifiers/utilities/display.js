@@ -11,11 +11,9 @@ export default {
   ...displayVariants.reduce(
     (classNames, variant) => ({
       ...classNames,
-      [variant]: `display: ${variant};`,
+      [variant]: [`display: ${variant};`],
     }),
     {}
   ),
-  hidden: `
-    display: none;
-  `,
+  hidden: ["display: none"],
 }

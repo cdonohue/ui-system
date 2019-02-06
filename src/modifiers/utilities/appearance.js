@@ -1,3 +1,3 @@
 export default {
-  "appearance-none": "appearance: none;",
+  "appearance-none": ["appearance: none"],
 }

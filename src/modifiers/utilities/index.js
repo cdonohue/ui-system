@@ -35,7 +35,6 @@ import verticalAlign from "./verticalAlign"
 import visibility from "./visibility"
 import whitespace from "./whitespace"
 import zIndex from "./zIndex"
-import transitions from "./transitions"
 import resize from "./resize"
 
 export default {
@@ -72,7 +71,6 @@ export default {
   ...textSizes,
   ...textStyle,
   ...tracking,
-  ...transitions,
   ...verticalAlign,
   ...visibility,
   ...whitespace,
