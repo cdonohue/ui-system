@@ -1,0 +1,21 @@
+{
+  "name": "ui-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cdonohue/ui-system.git",
+  "author": "Chad Donohue <chad.donohue@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docz:dev": "docz dev"
+  },
+  "devDependencies": {
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7"
+  },
+  "dependencies": {
+    "emotion": "^10.0.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
