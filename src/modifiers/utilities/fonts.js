@@ -1,8 +1,10 @@
-import { fonts } from "../config"
+export default function generate(config) {
+  const { fonts = {} } = config
 
-export default Object.keys(fonts).reduce((classes, modifier) => {
-  return {
-    ...classes,
-    [`font-${modifier}`]: [`font-family: ${fonts[modifier].join(", ")}`],
-  }
-}, {})
+  return Object.keys(fonts).reduce((classes, modifier) => {
+    return {
+      ...classes,
+      [`font-${modifier}`]: [`font-family: ${fonts[modifier].join(", ")}`],
+    }
+  }, {})
+}

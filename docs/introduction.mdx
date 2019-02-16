@@ -1,0 +1,59 @@
+---
+name: Introduction
+route: /
+order: 1000
+---
+
+import { Playground } from "docz"
+import { Box } from "../src"
+
+# Introduction
+
+UI System is a set of primitive components and utilities for prototyping/building React applications. The goal is to provide a base level of reset styles for each component, along with class utilities that are provided without any additional css rules.
+
+## Principles
+
+The core of UI System is powered by the `<Box />` component. It applies some basic style resets and renders an html element passed in using `tag`. The idea is to create more complex components by composing these `Box` components together and have one unified styling system that everything adheres to.
+
+## Getting Started
+
+`Box` renders a `<div>` tag by default, but you can pass any valid HTML `tag` as a prop.
+
+Let's start using a `Box` to render a `p` tag.
+Nothing too special. Try adding some utility classes to it, like `bg-grey-200`, `p-4`, or `font-serif`, or all three!
+
+<Playground>
+  <Box tag="p" className="">
+    Glossier mlkshk live-edge, activated charcoal farm-to-table squid
+    dreamcatcher authentic seitan coloring book ugh hoodie. Drinking vinegar
+    flexitarian waistcoat viral vaporware organic gastropub. Plaid deep v vinyl
+    cardigan fashion axe cornhole etsy intelligentsia listicle knausgaard
+    williamsburg PBR&B. Drinking vinegar semiotics squid locavore authentic
+    bicycle rights sustainable retro humblebrag gentrify.
+  </Box>
+</Playground>
+
+We'll get into the different utility classes in a bit. For now, just know that these extra utility classes are detected by UI System and the appropriate style rules are processed with `emotion` and injected into the DOM at render time.
+
+So, by utilizing `<Box />`, we can have a base reset along with any number of utility rules and only ship the styles that we need.
+
+By default, UI System uses class composition to combine styling rules.
+
+In the event that you need more specificity, just add an `id` to your component. Instead of composing classes, all styles to be applied will be wrapped into a specific css rule that uses the element's `tag`, `id`, and `emotion` generated class name.
+For extreme circumstances, use the `important` prop. This appends `!important` to every style rule (use when you want to ensure no other outside rules cascades).
+
+Take a look at `Box` components. Inspect them in the dev tools to see the differences in how their styles are applied.
+
+<Playground>
+  <Box className="flex">
+    <Box className="w-24 h-24 bg-blue-400 rounded mr-4" />
+    <Box id="special-box" className="w-24 h-24 bg-blue-400 rounded mr-4" />
+    <Box
+      id="important-special-box"
+      important
+      className="w-24 h-24 bg-red-400 rounded mr-4"
+    />
+  </Box>
+</Playground>
+
+Neat, right? Learn more about using utility classes.

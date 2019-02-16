@@ -5,9 +5,11 @@ const backgroundRepeat = {
   "bg-repeat-y": ["background-repeat: repeat-y"],
 }
 
-export default Object.keys(backgroundRepeat).reduce((rules, key) => {
-  return {
-    ...rules,
-    [key]: backgroundRepeat[key],
-  }
-}, {})
+export default function generate() {
+  return Object.keys(backgroundRepeat).reduce((rules, key) => {
+    return {
+      ...rules,
+      [key]: backgroundRepeat[key],
+    }
+  }, {})
+}

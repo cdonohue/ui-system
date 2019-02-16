@@ -1,8 +1,10 @@
-import { backgroundSize } from "../config"
+export default function generate(config) {
+  const { backgroundSize = {} } = config
 
-export default Object.keys(backgroundSize).reduce((classNames, modifier) => {
-  return {
-    ...classNames,
-    [`bg-${modifier}`]: [`background-size: ${backgroundSize[modifier]}`],
-  }
-}, {})
+  return Object.keys(backgroundSize).reduce((classNames, modifier) => {
+    return {
+      ...classNames,
+      [`bg-${modifier}`]: [`background-size: ${backgroundSize[modifier]}`],
+    }
+  }, {})
+}

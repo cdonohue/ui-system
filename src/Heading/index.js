@@ -6,7 +6,7 @@ import Box from "../Box"
 
 const tagStyles = css`
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 `
 
 const sizeLookup = {
@@ -24,11 +24,7 @@ function Heading(props) {
   const explicitStyles = cx(tagStyles, sizeLookup[headingVariant], className)
 
   return (
-    <Box
-      tag={headingVariant}
-      className={explicitStyles}
-      {...remainingProps}
-    >
+    <Box tag={headingVariant} className={explicitStyles} {...remainingProps}>
       {props.children}
     </Box>
   )
@@ -36,7 +32,7 @@ function Heading(props) {
 
 Heading.propTypes = {
   /** HTML heading variant (h1, h2, etc) */
-  is: PropTypes.oneOf(["h1","h2","h3","h4","h5","h6"]).isRequired
+  is: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6"]).isRequired,
 }
 
 export default Heading

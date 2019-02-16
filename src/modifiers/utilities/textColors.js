@@ -1,8 +1,10 @@
-import { textColors } from "../config"
+export default function generate(config) {
+  const { textColors = {} } = config
 
-export default Object.keys(textColors).reduce((classNames, modifier) => {
-  return {
-    ...classNames,
-    [`text-${modifier}`]: [`color: ${textColors[modifier]}`],
-  }
-}, {})
+  return Object.keys(textColors).reduce((classNames, modifier) => {
+    return {
+      ...classNames,
+      [`text-${modifier}`]: [`color: ${textColors[modifier]}`],
+    }
+  }, {})
+}

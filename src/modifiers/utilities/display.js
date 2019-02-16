@@ -7,13 +7,15 @@ const displayVariants = [
   "table-cell",
 ]
 
-export default {
-  ...displayVariants.reduce(
-    (classNames, variant) => ({
-      ...classNames,
-      [variant]: [`display: ${variant};`],
-    }),
-    {}
-  ),
-  hidden: ["display: none"],
+export default function generate() {
+  return {
+    ...displayVariants.reduce(
+      (classNames, variant) => ({
+        ...classNames,
+        [variant]: [`display: ${variant};`],
+      }),
+      {}
+    ),
+    hidden: ["display: none"],
+  }
 }

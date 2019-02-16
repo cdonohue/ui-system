@@ -10,9 +10,11 @@ const backgroundPosition = {
   "bg-top": ["background-position: top"],
 }
 
-export default Object.keys(backgroundPosition).reduce((rules, key) => {
-  return {
-    ...rules,
-    [key]: backgroundPosition[key],
-  }
-}, {})
+export default function generate() {
+  return Object.keys(backgroundPosition).reduce((rules, key) => {
+    return {
+      ...rules,
+      [key]: backgroundPosition[key],
+    }
+  }, {})
+}

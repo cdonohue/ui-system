@@ -1,8 +1,10 @@
-import { opacity } from "../config"
+export default function generate(config) {
+  const { opacity = {} } = config
 
-export default Object.keys(opacity).reduce((classNames, modifier) => {
-  return {
-    ...classNames,
-    [`opacity-${modifier}`]: [`opacity: ${opacity[modifier]}`],
-  }
-}, {})
+  return Object.keys(opacity).reduce((classNames, modifier) => {
+    return {
+      ...classNames,
+      [`opacity-${modifier}`]: [`opacity: ${opacity[modifier]}`],
+    }
+  }, {})
+}

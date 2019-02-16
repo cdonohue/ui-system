@@ -1,3 +1,5 @@
-export default {
-  "appearance-none": ["appearance: none"],
+export default function generate() {
+  return {
+    "appearance-none": ["appearance: none"],
+  }
 }

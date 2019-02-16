@@ -1,0 +1,94 @@
+---
+name: Colors
+---
+
+import { Playground } from "docz"
+import { Box, ConfigProvider } from "../src"
+import ColorSwatch from "./components/ColorSwatch"
+
+# Colors
+
+UI System ships with some default colors. The naming pattern for each color ranges from `700` down to `100` (darkest to lightest).
+
+<Box
+  style={{
+    marginBottom: "4rem",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
+    gridGap: "1rem",
+  }}
+>
+  <ColorSwatch color="grey" />
+  <ColorSwatch color="red" />
+  <ColorSwatch color="orange" />
+  <ColorSwatch color="yellow" />
+  <ColorSwatch color="green" />
+  <ColorSwatch color="teal" />
+  <ColorSwatch color="blue" />
+  <ColorSwatch color="indigo" />
+  <ColorSwatch color="purple" />
+  <ColorSwatch color="pink" />
+</Box>
+
+You can use these colors to style background colors, text colors, and border colors. Class name utilities are shown below.
+
+## Background Color
+
+`bg-{color}-{level}`
+
+<Playground>
+  <Box className="font-mono flex justify-between border bg-grey-100 p-2 rounded">
+    <Box className="bg-blue-600 text-white text-sm p-3 rounded-sm m-2">
+      bg-blue-600
+    </Box>
+    <Box className="bg-blue-500 text-white text-sm p-3 rounded-sm m-2">
+      bg-blue-500
+    </Box>
+    <Box className="bg-blue-400 text-white text-sm p-3 rounded-sm m-2">
+      bg-blue-400
+    </Box>
+    <Box className="bg-blue-300 text-sm p-3 rounded-sm m-2">bg-blue-300</Box>
+  </Box>
+</Playground>
+
+## Text Color
+
+`text-{color}-{level}`
+
+<Playground>
+  <Box className="font-mono flex justify-between border bg-grey-100 p-2 rounded">
+    <Box className="text-blue-600 text-sm p-3 rounded-sm m-2">
+      text-blue-600
+    </Box>
+    <Box className="text-blue-500 text-sm p-3 rounded-sm m-2">
+      text-blue-500
+    </Box>
+    <Box className="text-blue-400 text-sm p-3 rounded-sm m-2">
+      text-blue-400
+    </Box>
+    <Box className="text-blue-300 text-sm p-3 rounded-sm m-2">
+      text-blue-300
+    </Box>
+  </Box>
+</Playground>
+
+## Border Color
+
+`border-{color}-{level}`
+
+<Playground>
+  <Box className="font-mono flex justify-between border bg-grey-100 p-2 rounded">
+    <Box className="border border-blue-600 text-sm p-3 rounded-sm m-2">
+      border-blue-600
+    </Box>
+    <Box className="border border-blue-500 text-sm p-3 rounded-sm m-2">
+      border-blue-600
+    </Box>
+    <Box className="border border-blue-400 text-sm p-3 rounded-sm m-2">
+      border-blue-600
+    </Box>
+    <Box className="border border-blue-300 text-sm p-3 rounded-sm m-2">
+      border-blue-600
+    </Box>
+  </Box>
+</Playground>

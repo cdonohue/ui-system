@@ -1,5 +1,7 @@
-export default {
-  "float-right": ["float: right"],
-  "float-left": ["float: left"],
-  "float-none": ["float: none"],
+export default function generate(config) {
+  return {
+    "float-right": ["float: right"],
+    "float-left": ["float: left"],
+    "float-none": ["float: none"],
+  }
 }

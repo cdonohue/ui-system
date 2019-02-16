@@ -1,8 +1,10 @@
-import { zIndex } from "../config"
+export default function generate(config) {
+  const { zIndex = {} } = config
 
-export default Object.keys(zIndex).reduce((classes, modifier) => {
-  return {
-    ...classes,
-    [`z-${modifier}`]: [`z-index: ${zIndex[modifier]}`],
-  }
-}, {})
+  return Object.keys(zIndex).reduce((classes, modifier) => {
+    return {
+      ...classes,
+      [`z-${modifier}`]: [`z-index: ${zIndex[modifier]}`],
+    }
+  }, {})
+}

@@ -1,72 +1,88 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { css } from "emotion"
 
-import { css, cx } from "emotion"
-
-import modifiers from "../modifiers"
-import config from "../modifiers/config"
 import reset from "../modifiers/reset"
-
-function generateRandomString() {
-  const x = 2147483648
-  // Make sure the id starts with an alpha
-  return `ui-${Math.floor(Math.random() * x).toString(36) +
-    Math.abs(Math.floor(Math.random() * x) ^ Date.now()).toString(36)}`
-}
+import { ConfigConsumer } from "../ConfigContext"
 
 function mapRules(rules, isImportant = false) {
-  console.log(rules)
   return rules.map((rule) => {
     return isImportant ? `${rule} !important;` : `${rule};`
   })
 }
 
+function getActiveModifiers(classList, modifiers) {
+  return classList.split(" ").filter((name) => modifiers[name])
+}
+
 function Box(props) {
   const {
     children,
-    className,
-    isLocked,
+    className = "",
+    important,
     tag = "div",
     ...remainingProps
   } = props
 
-  const uniqueId = generateRandomString()
+  return (
+    <ConfigConsumer>
+      {({ config, modifiers }) => {
+        // Get base reset
+        const baseReset = mapRules(reset.base, important).join("")
 
-  remainingProps.id = uniqueId
+        // Get array of active modifiers
+        const activeModifiers = getActiveModifiers(className, modifiers)
 
-  const generatedClasses = (className || "")
-    .split(" ")
-    .filter((name) => name.match(/^css-/))
+        const classList = className
+          .split(" ")
+          .filter((className) => activeModifiers.indexOf(className) === -1)
+          .join(" ")
 
-  const userClasses = (className || "")
-    .split(" ")
-    .filter((name) => !name.match(/^css-/))
+        const activeModifierRules = activeModifiers.map((name) =>
+          mapRules(modifiers[name], important).join("")
+        )
 
-  const activeModifiers = userClasses
-    .filter((name) => modifiers[name])
-    .map((name) => mapRules(modifiers[name], isLocked).join(""))
-    .join("")
+        // Check for id and bundle styles together
+        if (remainingProps.id) {
+          const normalizedStyles = css`
+            ${tag}#${remainingProps.id}& {
+              ${baseReset}
+              ${activeModifierRules.join("")}
+            }
+          `
+          remainingProps.className = `${normalizedStyles} ${classList}`.trim()
+        } else {
+          // Single out the base reset
+          const baseResetClass = css`
+            ${baseReset}
+          `
 
-  const baseReset = mapRules(reset.base, isLocked).join("")
+          // Single out each of the modifiers
+          const activeModifierClasses = activeModifierRules.map(
+            (rules) =>
+              css`
+                ${rules}
+              `
+          )
 
-  const normalizedStyles = css`
-    ${tag}#${uniqueId}& {
-      ${baseReset}
-      ${generatedClasses}
-      ${activeModifiers}
-    }
-  `
-
-  remainingProps.className = cx(normalizedStyles, userClasses)
-
-  return React.createElement(tag, remainingProps, children)
+          remainingProps.className = `${baseResetClass} ${activeModifierClasses.join(
+            " "
+          )} ${classList}`.trim()
+        }
+        return React.createElement(tag, remainingProps, children)
+      }}
+    </ConfigConsumer>
+  )
 }
 
 Box.defaultProps = {
   tag: "div",
+  important: false,
 }
 
 Box.propTypes = {
+  /** Appends !important to all css rules */
+  important: PropTypes.bool,
   /** HTML tag to render */
   tag: PropTypes.string,
 }

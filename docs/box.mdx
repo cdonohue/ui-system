@@ -1,0 +1,61 @@
+---
+name: Box
+menu: Components
+---
+
+import { Playground, PropsTable } from "docz"
+
+import { Box, ConfigProvider } from "../src"
+
+# Box
+
+This is a low-level primitive intended to be extended by other components. All `Box` components will attempt to harden the selector specificity of the styles by including the tag name, id and generated class name. The format of the generated selector will look like the following:
+
+```css
+[tag]#[generated-id].[generated-class] {
+  /* All styles */
+}
+```
+
+`tag` is the html element being rendered. `generated-id` is pretty self explanatory (this happens every render). `generated-class` is the class name used by `emotion` after all styles have been processed and compiled.
+
+<PropsTable of={Box} />
+
+We'll attempt to break the styles set on this by setting some outer rules
+
+```css
+div.some-random-div {
+  background: black !important;
+  font-weight: bold;
+}
+```
+
+<Playground>
+  <style
+    dangerouslySetInnerHTML={{
+      __html: `
+    div.some-random-div {
+      background: black !important;
+      font-weight: bold;
+    }
+  `,
+    }}
+  />
+  An example to showcase outer styles not bleeding through
+  <Box
+    id="my-id"
+    important
+    className="some-random-div bg-yellow-lighter p-4 text-sm text-yellow-darkest border border-yellow-dark mt-4 p-64 rounded"
+    tag="div"
+  >
+    Subway tile cardigan tacos fashion axe. Subway tile pickled blog hell of
+    health goth tattooed tousled affogato hashtag fashion axe mumblecore artisan
+    synth tacos. Readymade shaman DIY, glossier vexillologist enamel pin trust
+    fund chia live-edge before they sold out messenger bag aesthetic gastropub
+    biodiesel. Organic blog pitchfork gluten-free, jianbing lyft subway tile.
+    Bespoke retro schlitz poutine palo santo kogi tilde YOLO tumblr scenester
+    locavore jianbing cred. Ennui brooklyn iceland marfa, farm-to-table venmo
+    art party affogato kogi umami raclette. Enamel pin affogato tofu biodiesel
+    master cleanse stumptown fixie.
+  </Box>
+</Playground>

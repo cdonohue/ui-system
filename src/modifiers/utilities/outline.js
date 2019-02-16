@@ -1,3 +1,5 @@
-export default {
-  "outline-none": ["outline: 0"],
+export default function generate() {
+  return {
+    "outline-none": ["outline: 0"],
+  }
 }

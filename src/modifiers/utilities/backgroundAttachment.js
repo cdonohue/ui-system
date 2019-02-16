@@ -4,9 +4,11 @@ const backgroundAttachment = {
   "bg-scroll": ["background-attachment: scroll"],
 }
 
-export default Object.keys(backgroundAttachment).reduce((rules, key) => {
-  return {
-    ...rules,
-    [key]: backgroundAttachment[key],
-  }
-}, {})
+export default function generate() {
+  return Object.keys(backgroundAttachment).reduce((rules, key) => {
+    return {
+      ...rules,
+      [key]: backgroundAttachment[key],
+    }
+  }, {})
+}

@@ -1,0 +1,19 @@
+---
+name: Button
+menu: Components
+---
+
+import { Playground, PropsTable } from "docz"
+
+import { Button, Container } from "../src"
+
+# Button
+
+<PropsTable of={Button} />
+
+<Container className="flex">
+  <Button>A plain button</Button>
+  <Button className="border border-blue px-4 py text-blue rounded">
+    An outline button
+  </Button>
+</Container>

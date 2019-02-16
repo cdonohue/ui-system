@@ -1,0 +1,71 @@
+---
+name: Typography
+route: /typography
+order: 800
+---
+
+import { Playground } from "docz"
+import {
+  Box,
+  Container,
+  ConfigProvider,
+  ConfigConsumer,
+  Heading,
+  Text,
+  Paragraph,
+  List,
+  ListItem,
+} from "../src"
+
+# Typography
+
+## Font Family
+
+You can use the `font-sans`, `font-serif`, and `font-mono` class names to take advantage of the default font stacks provided.
+
+<ConfigConsumer>
+  {({ config }) => (
+    <Box className="flex justify-between mb-4">
+      {Object.keys(config.fonts).map((fontType) => (
+        <Container className="rounded shadow overflow-hidden flex-grow mr-4">
+          <Heading
+            className="px-4 py-1 capitalize shadow bg-grey-200 text-lg"
+            is="h4"
+          >
+            {fontType}
+          </Heading>
+          <List className="list-reset flex flex-wrap p-4">
+            {config.fonts[fontType].map((typeface) => (
+              <ListItem className="px-2 py mr-2 mb-2 text-sm rounded bg-grey-300">
+                {typeface}
+              </ListItem>
+            ))}
+          </List>
+        </Container>
+      ))}
+    </Box>
+  )}
+</ConfigConsumer>
+
+Try changing out the example below from `font-sans` to another variant.
+
+<Playground>
+  <Box className="font-sans rounded-lg shadow-lg p-8 text-yellow-700 bg-yellow-100">
+    <Heading is="h2">Sans</Heading>
+
+    <Paragraph>
+      What looked like a small patch of purple grass, above five feet square, was
+      moving across the sand in their direction. When it came near enough he
+      perceived that it was not grass; there were no blades, but only purple
+      roots. The roots were revolving, for each small plant in the whole patch,
+      like the spokes of a rimless wheel.
+    </Paragraph>
+
+  </Box>
+</Playground>
+
+## Type Scale
+
+## Line Height
+
+## Letter Spacing

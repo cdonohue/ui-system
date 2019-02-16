@@ -1,8 +1,10 @@
-import { fontWeights } from "../config"
+export default function generate(config) {
+  const { fontWeights = {} } = config
 
-export default Object.keys(fontWeights).reduce((classNames, modifier) => {
-  return {
-    ...classNames,
-    [`${modifier}`]: [`font-weight: ${fontWeights[modifier]}`],
-  }
-}, {})
+  return Object.keys(fontWeights).reduce((classNames, modifier) => {
+    return {
+      ...classNames,
+      [`${modifier}`]: [`font-weight: ${fontWeights[modifier]}`],
+    }
+  }, {})
+}

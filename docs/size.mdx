@@ -1,0 +1,22 @@
+---
+name: Size Observer
+---
+
+import { Playground } from "docz"
+import { Box, SizeObserver } from "../src"
+
+# Size Observer
+
+<Playground>
+  <SizeObserver>
+    {({ width, height }) => (
+      <Box
+        className={`p-4 rounded text-white ${
+          width > 300 ? "bg-blue-500" : "bg-orange-500"
+        }`}
+      >
+        Box width: {width}px Resize the handle to the left -->
+      </Box>
+    )}
+  </SizeObserver>
+</Playground>

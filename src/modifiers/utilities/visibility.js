@@ -1,4 +1,6 @@
-export default {
-  visible: ["visibility: visible"],
-  invisible: ["visibility: hidden"],
+export default function generate() {
+  return {
+    visible: ["visibility: visible"],
+    invisible: ["visibility: hidden"],
+  }
 }

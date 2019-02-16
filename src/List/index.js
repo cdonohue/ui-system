@@ -16,24 +16,18 @@ const tagStyles = css`
 `
 
 function List(props) {
-  const { className, is: listVariant, ...remainingProps } = props
-
-  const explicitStyles = cx(tagStyles, className)
+  const { ordered = false, ...remainingProps } = props
 
   return (
-    <Box
-      tag={listVariant}
-      className={explicitStyles}
-      {...remainingProps}
-    >
+    <Box tag={ordered ? "ol" : "ul"} {...remainingProps}>
       {props.children}
     </Box>
   )
 }
 
 List.propTypes = {
-  /** HTML list variant (ol, ul) */
-  is: PropTypes.oneOf(["ol","ul"]).isRequired
+  /** Determines whether a ul or ol is rendered */
+  ordered: PropTypes.bool,
 }
 
 export default List

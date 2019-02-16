@@ -7,9 +7,13 @@ const verticalAlignments = [
   "text-bottom",
 ]
 
-export default verticalAlignments.reduce((classNames, modifier) => {
-  return {
-    ...classNames,
-    [`align-${modifier}`]: [`vertical-align: ${verticalAlignments[modifier]}`],
-  }
-}, {})
+export default function generate() {
+  return verticalAlignments.reduce((classNames, modifier) => {
+    return {
+      ...classNames,
+      [`align-${modifier}`]: [
+        `vertical-align: ${verticalAlignments[modifier]}`,
+      ],
+    }
+  }, {})
+}

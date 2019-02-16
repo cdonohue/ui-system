@@ -7,9 +7,11 @@ const cursorVariants = [
   "not-allowed",
 ]
 
-export default Object.keys(cursorVariants).reduce((classNames, variant) => {
-  return {
-    ...classNames,
-    [`cursor-${variant}`]: [`cursor: ${cursorVariants[variant]}`],
-  }
-}, {})
+export default function generate() {
+  return Object.keys(cursorVariants).reduce((classNames, variant) => {
+    return {
+      ...classNames,
+      [`cursor-${variant}`]: [`cursor: ${cursorVariants[variant]}`],
+    }
+  }, {})
+}

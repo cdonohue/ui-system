@@ -9,13 +9,14 @@
     "docz:dev": "docz dev"
   },
   "devDependencies": {
-    "docz": "^0.13.7",
-    "docz-theme-default": "^0.13.7"
+    "docz": "~0.13.7",
+    "docz-theme-default": "~0.13.7"
   },
   "dependencies": {
-    "emotion": "^10.0.7",
-    "prop-types": "^15.6.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "emotion": "~10.0.7",
+    "polychrome": "~4.1.2",
+    "prop-types": "~15.6.2",
+    "react": "~16.7.0",
+    "react-dom": "~16.7.0"
   }
 }
