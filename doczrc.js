@@ -2,6 +2,7 @@ const { colors } = require("./src/modifiers/config")
 
 module.exports = {
   title: "<UI System />",
+  description: "UI System documentation",
   codeSandbox: false,
   themeConfig: {
     colors: {
@@ -16,7 +17,7 @@ module.exports = {
       background: colors["white"],
       border: colors["grey-300"],
       theadColor: colors["grey-600"],
-      theadBg: colors["grey-100"],
+      theadBg: colors["grey-200"],
       tableColor: colors["grey-700"],
       tooltipBg: colors["black"],
       tooltipColor: colors["white"],
