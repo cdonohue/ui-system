@@ -25,7 +25,14 @@ You can use the `font-sans`, `font-serif`, and `font-mono` class names to take a
 
 <ConfigConsumer>
   {({ config }) => (
-    <Box className="flex justify-between mb-4">
+    <Box
+      style={{
+        display: "grid",
+        marginBottom: "1rem",
+        gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+        gridGap: "1rem",
+      }}
+    >
       {Object.keys(config.fonts).map((fontType) => (
         <Container className="rounded shadow overflow-hidden flex-grow mr-4">
           <Heading className="px-4 py-1 capitalize bg-grey-200 text-lg" is="h4">
@@ -33,7 +40,7 @@ You can use the `font-sans`, `font-serif`, and `font-mono` class names to take a
           </Heading>
           <List className="list-reset flex flex-wrap p-4">
             {config.fonts[fontType].map((typeface) => (
-              <ListItem className="px-2 py mr-2 mb-2 text-sm rounded bg-grey-300">
+              <ListItem className="px-2 py mr-2 mb-2 text-sm rounded font-mono bg-grey-200">
                 {typeface}
               </ListItem>
             ))}
