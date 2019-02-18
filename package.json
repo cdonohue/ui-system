@@ -1,12 +1,14 @@
 {
   "name": "ui-system",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/ui-system.js",
+  "umd:main": "dist/ui-system.umd.js",
   "repository": "https://github.com/cdonohue/ui-system.git",
   "author": "Chad Donohue <chad.donohue@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "docz:dev": "docz dev"
+    "build": "microbundle -i src/index.js --jsx React.createElement",
+    "start": "docz dev"
   },
   "devDependencies": {
     "docz": "~0.13.7",
@@ -14,9 +16,11 @@
   },
   "dependencies": {
     "emotion": "~10.0.7",
+    "microbundle": "~0.9.0",
     "polychrome": "~4.1.2",
     "prop-types": "~15.6.2",
     "react": "~16.7.0",
-    "react-dom": "~16.7.0"
+    "react-dom": "~16.7.0",
+    "resize-observer-polyfill": "~1.5.1"
   }
 }
