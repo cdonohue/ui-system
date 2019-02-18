@@ -1,6 +1,6 @@
-const { colors } = require("./src/modifiers/config")
+import { colors } from "./src/modifiers/config"
 
-module.exports = {
+export default {
   title: "<UI System />",
   description: "UI System documentation",
   codeSandbox: false,
