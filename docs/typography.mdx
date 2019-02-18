@@ -1,7 +1,7 @@
 ---
 name: Typography
 route: /typography
-order: 800
+order: 700
 ---
 
 import { Playground } from "docz"
@@ -28,10 +28,7 @@ You can use the `font-sans`, `font-serif`, and `font-mono` class names to take a
     <Box className="flex justify-between mb-4">
       {Object.keys(config.fonts).map((fontType) => (
         <Container className="rounded shadow overflow-hidden flex-grow mr-4">
-          <Heading
-            className="px-4 py-1 capitalize shadow bg-grey-200 text-lg"
-            is="h4"
-          >
+          <Heading className="px-4 py-1 capitalize bg-grey-200 text-lg" is="h4">
             {fontType}
           </Heading>
           <List className="list-reset flex flex-wrap p-4">

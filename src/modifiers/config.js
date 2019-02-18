@@ -1,13 +1,13 @@
-const colors = {
+export const colors = {
   transparent: "transparent",
-  "transparent-black-1": "rgba(34,41,47,.12)",
-  "transparent-black-2": "rgba(34,41,47,.26)",
-  "transparent-black-3": "rgba(34,41,47,.54)",
-  "transparent-black-4": "rgba(34,41,47,.85)",
-  "transparent-white-1": "rgba(255,255,255,.12)",
-  "transparent-white-2": "rgba(255,255,255,.26)",
-  "transparent-white-3": "rgba(255,255,255,.54)",
-  "transparent-white-4": "rgba(255,255,255,.85)",
+  "transparent-shade-100": "rgba(34,41,47,.12)",
+  "transparent-shade-200": "rgba(34,41,47,.26)",
+  "transparent-shade-300": "rgba(34,41,47,.54)",
+  "transparent-shade-400": "rgba(34,41,47,.85)",
+  "transparent-tint-100": "rgba(255,255,255,.12)",
+  "transparent-tint-200": "rgba(255,255,255,.26)",
+  "transparent-tint-300": "rgba(255,255,255,.54)",
+  "transparent-tint-400": "rgba(255,255,255,.85)",
 
   black: "#22292f",
   "grey-700": "#3d4852",
@@ -92,7 +92,7 @@ const colors = {
   "pink-100": "#ffebef",
 }
 
-module.exports = {
+export default {
   colors,
   fonts: {
     sans: [

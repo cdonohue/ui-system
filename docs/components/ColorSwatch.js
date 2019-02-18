@@ -8,7 +8,7 @@ export default function ColorSwatch(props) {
       {({ config }) => {
         const { color } = props
 
-        const hex = config.colors[`${color}-400`]
+        const hex = config.colors[`${color}-400`] || config.colors[`${color}`]
 
         const relatedColors = Object.keys(config.colors).filter(
           (colorName) => colorName.includes(color) && color !== colorName
@@ -55,7 +55,7 @@ export default function ColorSwatch(props) {
           <Box className="rounded overflow-hidden shadow flex">
             <Box className={`flex-grow relative shadow flex flex-col`}>
               <Box
-                className={`flex-grow h-24 flex flex-col justify-end items-start bg-${color}-400`}
+                className={`flex-grow h-24 flex flex-col justify-end items-start bg-${color}-400 bg-${color}`}
               >
                 <Box
                   className={`p-2 capitalize bold text-shadow text-${
@@ -65,8 +65,16 @@ export default function ColorSwatch(props) {
                   {color}
                 </Box>
               </Box>
-              <Box className={`flex p-2 items-center`}>
-                <Box className={`w-2 h-2 mr-1 rounded-full bg-${color}-400`} />
+              <Box
+                style={{
+                  boxShadow:
+                    color === "white" ? "inset 0 1px rgba(0,0,0,.06)" : "",
+                }}
+                className={`flex p-2 items-center`}
+              >
+                <Box
+                  className={`w-2 h-2 mr-1 shadow-inner rounded-full bg-${color}-400 bg-${color}`}
+                />
                 <Box className="text-sm uppercase">{hex}</Box>
               </Box>
             </Box>

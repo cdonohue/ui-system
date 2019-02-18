@@ -1,5 +1,5 @@
 export default function generate() {
   return {
-    "list-reset": ["list-style: none", "padding: 0"],
+    "list-reset": ["list-style: none"],
   }
 }
