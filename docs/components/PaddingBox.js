@@ -7,7 +7,7 @@ export default function PaddingBox({ caption, pattern, paddingModifier }) {
       <Heading is="h4" className="text-green-600 text-base bold">
         {caption}
       </Heading>
-      <Box tag="code" className="font-mono text-green-600 text-sm block mb-2">
+      <Box is="code" className="font-mono text-green-600 text-sm block mb-2">
         {pattern}
       </Box>
       <Box

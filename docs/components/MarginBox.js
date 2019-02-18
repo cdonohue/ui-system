@@ -7,7 +7,7 @@ export default function MarginBox({ caption, pattern, marginModifier }) {
       <Heading is="h4" className="text-orange-600 text-base bold">
         {caption}
       </Heading>
-      <Box tag="code" className="font-mono text-orange-600 text-sm block mb-2">
+      <Box is="code" className="font-mono text-orange-600 text-sm block mb-2">
         {pattern}
       </Box>
       <Box className="bg-orange-200 rounded border border-orange-200">
