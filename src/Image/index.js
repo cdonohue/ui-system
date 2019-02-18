@@ -17,7 +17,7 @@ function Image(props) {
   const explicitStyles = cx(tagStyles, className)
 
   return (
-    <Box tag="img" className={explicitStyles} {...remainingProps}>
+    <Box is="img" className={explicitStyles} {...remainingProps}>
       {props.children}
     </Box>
   )

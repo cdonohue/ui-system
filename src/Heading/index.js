@@ -24,7 +24,7 @@ function Heading(props) {
   const explicitStyles = cx(tagStyles, sizeLookup[headingVariant], className)
 
   return (
-    <Box tag={headingVariant} className={explicitStyles} {...remainingProps}>
+    <Box is={headingVariant} className={explicitStyles} {...remainingProps}>
       {props.children}
     </Box>
   )

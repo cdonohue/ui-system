@@ -3,17 +3,17 @@ import { css, cx } from "emotion"
 
 import Box from "../Box"
 
-const tagStyles = css`
+const isStyles = css`
   margin-bottom: 1rem;
 `
 
 export default function Paragraph(props) {
   const { className, ...remainingProps } = props
 
-  const explicitStyles = cx(tagStyles, className)
+  const explicitStyles = cx(isStyles, className)
 
   return (
-    <Box tag="p" className={explicitStyles} {...remainingProps}>
+    <Box is="p" className={explicitStyles} {...remainingProps}>
       {props.children}
     </Box>
   )

@@ -14,7 +14,7 @@ function Text(props) {
   const explicitStyles = cx(tagStyles, className)
 
   return (
-    <Box tag={textVariant} className={explicitStyles} {...remainingProps}>
+    <Box is={textVariant} className={explicitStyles} {...remainingProps}>
       {props.children}
     </Box>
   )

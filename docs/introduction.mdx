@@ -13,17 +13,17 @@ UI System is a set of primitive components and utilities for prototyping/buildin
 
 ## Principles
 
-The core of UI System is powered by the `<Box />` component. It applies some basic style resets and renders an html element passed in using `tag`. The idea is to create more complex components by composing these `Box` components together and have one unified styling system that everything adheres to.
+The core of UI System is powered by the `<Box />` component. It applies some basic style resets and renders an html element or component passed in using `is`. The idea is to create more complex components by composing these `Box` components together and have one unified styling system that everything adheres to.
 
 ## Getting Started
 
-`Box` renders a `<div>` tag by default, but you can pass any valid HTML `tag` as a prop.
+`Box` renders a `<div>` tag by default, but you can pass any HTML tag, or even another React component with the `is` prop.
 
 Let's start using a `Box` to render a `p` tag.
 Nothing too special. Try adding some utility classes to it, like `bg-grey-200`, `p-4`, or `font-serif`, or all three!
 
 <Playground>
-  <Box tag="p" className="">
+  <Box is="p" className="">
     Glossier mlkshk live-edge, activated charcoal farm-to-table squid
     dreamcatcher authentic seitan coloring book ugh hoodie. Drinking vinegar
     flexitarian waistcoat viral vaporware organic gastropub. Plaid deep v vinyl
@@ -39,7 +39,7 @@ So, by utilizing `<Box />`, we can have a base reset along with any number of ut
 
 By default, UI System uses class composition to combine styling rules.
 
-In the event that you need more specificity, just add an `id` to your component. Instead of composing classes, all styles to be applied will be wrapped into a specific css rule that uses the element's `tag`, `id`, and `emotion` generated class name.
+In the event that you need more specificity, just add an `id` to your component. Instead of composing classes, all styles to be applied will be wrapped into a specific css rule that uses the element's `id` and `emotion` generated class name.
 For extreme circumstances, use the `important` prop. This appends `!important` to every style rule (use when you want to ensure no other outside rules cascades).
 
 Take a look at `Box` components. Inspect them in the dev tools to see the differences in how their styles are applied.

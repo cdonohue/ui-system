@@ -24,18 +24,14 @@ function Button(props) {
   const explicitStyles = cx(tagStyles, className)
 
   return (
-    <Box
-      tag="button"
-      className={explicitStyles}
-      {...remainingProps}
-    >
+    <Box is="button" className={explicitStyles} {...remainingProps}>
       {props.children}
     </Box>
   )
 }
 
 Button.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
 }
 
 export default Button

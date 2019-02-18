@@ -4,7 +4,7 @@ import Box from "../Box"
 
 export default function Li(props) {
   return (
-    <Box tag="li" {...props}>
+    <Box is="li" {...props}>
       {props.children}
     </Box>
   )

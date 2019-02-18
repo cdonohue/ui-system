@@ -7,7 +7,7 @@ function Container(props) {
   const { children, is = "div", ...remainingProps } = props
 
   return (
-    <Box tag={is} {...remainingProps}>
+    <Box is={is} {...remainingProps}>
       {children}
     </Box>
   )

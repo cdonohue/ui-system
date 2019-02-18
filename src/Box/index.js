@@ -20,7 +20,7 @@ function Box(props) {
     children,
     className = "",
     important,
-    tag = "div",
+    is = "div",
     ...remainingProps
   } = props
 
@@ -44,8 +44,10 @@ function Box(props) {
 
         // Check for id and bundle styles together
         if (remainingProps.id) {
+          remainingProps["data-ui-system-component"] = true
+
           const normalizedStyles = css`
-            ${tag}#${remainingProps.id}& {
+            #${remainingProps.id}&[data-ui-system-component] {
               ${baseReset}
               ${activeModifierRules.join("")}
             }
@@ -69,22 +71,23 @@ function Box(props) {
             " "
           )} ${classList}`.trim()
         }
-        return React.createElement(tag, remainingProps, children)
+
+        return React.createElement(is, remainingProps, children)
       }}
     </ConfigConsumer>
   )
 }
 
 Box.defaultProps = {
-  tag: "div",
+  is: "div",
   important: false,
 }
 
 Box.propTypes = {
   /** Appends !important to all css rules */
   important: PropTypes.bool,
-  /** HTML tag to render */
-  tag: PropTypes.string,
+  /** HTML tag/ React component to render */
+  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 }
 
 export default Box

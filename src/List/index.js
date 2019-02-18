@@ -19,7 +19,7 @@ function List(props) {
   const { ordered = false, ...remainingProps } = props
 
   return (
-    <Box tag={ordered ? "ol" : "ul"} {...remainingProps}>
+    <Box is={ordered ? "ol" : "ul"} {...remainingProps}>
       {props.children}
     </Box>
   )
