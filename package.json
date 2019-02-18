@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "docz": "~0.13.7",
+    "docz-plugin-netlify": "^1.1.4",
     "docz-theme-default": "~0.13.7"
   },
   "dependencies": {

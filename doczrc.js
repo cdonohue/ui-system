@@ -1,3 +1,5 @@
+import doczPluginNetlify from "docz-plugin-netlify"
+
 import { colors } from "./src/modifiers/config"
 
 export default {
@@ -30,4 +32,5 @@ export default {
     },
     showPlaygroundEditor: true,
   },
+  plugins: [doczPluginNetlify()],
 }
