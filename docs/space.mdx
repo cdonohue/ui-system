@@ -1,24 +1,23 @@
 ---
 name: Space
 route: /space
-order: 900
+order: 1800
 ---
 
 import { Playground } from "docz"
 import ConfigPropertyList from "./components/ConfigPropertyList"
 import MarginBox from "./components/MarginBox"
 import PaddingBox from "./components/PaddingBox"
-import WidthBox from "./components/WidthBox"
-import HeightBox from "./components/HeightBox"
+import SectionHeading from "./components/SectionHeading"
 import { Box, Heading, Container, ConfigConsumer, Code } from "../src"
 
 # Space
 
 Use the following utilities to style `margin`, `padding`, `width`, and `height`.
 
-<Heading is="h4" className="flex items-center border-b border-grey-300 border-dashed mb-4">
+<SectionHeading>
   Margin <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">{"m{side?}-{size}"}</Code>
-</Heading>
+</SectionHeading>
 <Box
   style={{
     display: "grid",
@@ -41,9 +40,9 @@ Use the following utilities to style `margin`, `padding`, `width`, and `height`.
 
 <br />
 
-<Heading is="h4" className="flex items-center border-b border-grey-300 border-dashed mb-4">
+<SectionHeading>
   Padding <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">{"p{side?}-{size}"}</Code>
-</Heading>
+</SectionHeading>
 <Box
   style={{
     display: "grid",
@@ -61,77 +60,3 @@ Use the following utilities to style `margin`, `padding`, `width`, and `height`.
 </Box>
 
 <ConfigPropertyList property="padding" />
-
-<br />
-
-<Heading
-  is="h4"
-  className="flex items-center border-b border-grey-300 border-dashed mb-4"
->
-  Width{" "}
-  <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">
-    {"w-{size}"}
-  </Code>
-</Heading>
-
-> Not all sizes shown below. Refer to the properties further down for all possible width sizes.
-
-<Box
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(128px, 1fr))",
-    gridGap: "1rem",
-  }}
->
-  <WidthBox widthModifier="w-1/2" />
-  <WidthBox widthModifier="w-2/3" />
-  <WidthBox widthModifier="w-1/4" />
-  <WidthBox widthModifier="w-3/4" />
-  <WidthBox widthModifier="w-1/5" />
-  <WidthBox widthModifier="w-2/5" />
-  <WidthBox widthModifier="w-3/5" />
-  <WidthBox widthModifier="w-4/5" />
-  <WidthBox widthModifier="w-1/6" />
-  <WidthBox widthModifier="w-5/6" />
-  <WidthBox widthModifier="w-full" />
-</Box>
-
-<ConfigPropertyList property="width" />
-
-<br />
-
-<Heading
-  is="h4"
-  className="flex items-center border-b border-grey-300 border-dashed mb-4"
->
-  Height{" "}
-  <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">
-    {"h-{size}"}
-  </Code>
-</Heading>
-
-> Not all sizes shown below. Refer to the properties further down for all possible height sizes.
-
-<Box
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(48px, 1fr))",
-    gridGap: "1rem",
-  }}
->
-  <HeightBox heightModifier="h-1" />
-  <HeightBox heightModifier="h-2" />
-  <HeightBox heightModifier="h-3" />
-  <HeightBox heightModifier="h-4" />
-  <HeightBox heightModifier="h-5" />
-  <HeightBox heightModifier="h-6" />
-  <HeightBox heightModifier="h-8" />
-  <HeightBox heightModifier="h-10" />
-  <HeightBox heightModifier="h-12" />
-  <HeightBox heightModifier="h-16" />
-  <HeightBox heightModifier="h-24" />
-  <HeightBox heightModifier="h-32" />
-  <HeightBox heightModifier="h-48" />
-</Box>
-
-<ConfigPropertyList property="height" />

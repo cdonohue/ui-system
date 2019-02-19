@@ -1,25 +1,26 @@
 ---
 name: Introduction
 route: /
-order: 1000
+order: 2000
 ---
 
 import { Playground } from "docz"
 import { Box } from "../src"
+import SectionHeading from "./components/SectionHeading"
 
 # Introduction
 
 UI System is a set of primitive components and utilities for prototyping/building React applications. The goal is to provide a base level of reset styles for each component, along with class utilities that are provided without any additional css rules.
 
-## Principles
+<SectionHeading>Principles</SectionHeading>
 
 The core of UI System is powered by the `<Box />` component. It applies some basic style resets and renders an html element or component passed in using `is`. The idea is to create more complex components by composing these `Box` components together and have one unified styling system that everything adheres to.
 
-## Getting Started
+<SectionHeading>Getting Started</SectionHeading>
 
 `Box` renders a `<div>` tag by default, but you can pass any HTML tag, or even another React component with the `is` prop.
 
-Let's start using a `Box` to render a `p` tag.
+Let's start by using a `Box` to render a `p` tag.
 Nothing too special. Try adding some utility classes to it, like `bg-grey-200`, `p-4`, or `font-serif`, or all three!
 
 <Playground>

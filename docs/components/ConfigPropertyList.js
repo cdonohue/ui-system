@@ -5,7 +5,7 @@ export default function ConfigPropertyList({ property }) {
   return (
     <ConfigConsumer>
       {({ config }) => (
-        <Box className="my-4 bg-grey-200 p-4 rounded">
+        <Box className="my-4">
           <Box className="mb-4 text-grey-600">
             <Text className="capitalize">{property}</Text> sizes
           </Box>

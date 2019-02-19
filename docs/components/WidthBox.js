@@ -8,7 +8,7 @@ export default function WidthBox({ widthModifier }) {
         {widthModifier}
       </Box>
       <Box
-        className={`bg-blue-200 rounded border border-blue-400 text-blue-500 h-4 font-mono border-4 ${widthModifier}`}
+        className={`bg-blue-200 rounded border border-blue-400 text-blue-500 h-8 font-mono border-4 ${widthModifier}`}
       />
     </Box>
   )

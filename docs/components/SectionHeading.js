@@ -10,7 +10,7 @@ export default function SectionHeading({
   return (
     <Heading
       is="h4"
-      className={`flex items-center border-b border-grey-300 border-dashed mb-4 ${className}`}
+      className={`flex items-center border-b border-grey-300 border-dashed mt-8 mb-4 ${className}`}
       {...remainingProps}
     >
       {children}
