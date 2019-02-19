@@ -1,21 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { css, cx } from "emotion"
 
 import Box from "../Box"
 
-const tagStyles = css`
-  display: inline-block;
-`
-
 function Text(props) {
-  const { className, is: textVariant = "span", ...remainingProps } = props
-
-  const explicitStyles = cx(tagStyles, className)
+  const { children, className, ...remainingProps } = props
 
   return (
-    <Box is={textVariant} className={explicitStyles} {...remainingProps}>
-      {props.children}
+    <Box className={`inline-block ${className}`} {...remainingProps}>
+      {children}
     </Box>
   )
 }

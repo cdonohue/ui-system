@@ -4,10 +4,10 @@ import PropTypes from "prop-types"
 import Box from "../Box"
 
 function Container(props) {
-  const { children, is = "div", ...remainingProps } = props
+  const { children, className, ...remainingProps } = props
 
   return (
-    <Box is={is} {...remainingProps}>
+    <Box className={`block ${className}`} {...remainingProps}>
       {children}
     </Box>
   )

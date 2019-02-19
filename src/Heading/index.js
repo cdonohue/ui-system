@@ -1,13 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { css, cx } from "emotion"
 
 import Box from "../Box"
-
-const tagStyles = css`
-  margin-top: 0;
-  margin-bottom: 0;
-`
 
 const sizeLookup = {
   h1: "text-4xl",
@@ -19,13 +13,14 @@ const sizeLookup = {
 }
 
 function Heading(props) {
-  const { className, is: headingVariant, ...remainingProps } = props
-
-  const explicitStyles = cx(tagStyles, sizeLookup[headingVariant], className)
+  const { children, className, ...remainingProps } = props
 
   return (
-    <Box is={headingVariant} className={explicitStyles} {...remainingProps}>
-      {props.children}
+    <Box
+      className={`my-0 ${sizeLookup[props.is]} ${className}`}
+      {...remainingProps}
+    >
+      {children}
     </Box>
   )
 }
