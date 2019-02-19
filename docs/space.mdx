@@ -10,14 +10,15 @@ import MarginBox from "./components/MarginBox"
 import PaddingBox from "./components/PaddingBox"
 import WidthBox from "./components/WidthBox"
 import HeightBox from "./components/HeightBox"
-import { Box, Container, ConfigConsumer } from "../src"
+import { Box, Heading, Container, ConfigConsumer, Code } from "../src"
 
 # Space
 
 Use the following utilities to style `margin`, `padding`, `width`, and `height`.
 
-## Margin
-
+<Heading is="h4" className="flex items-center border-b border-grey-300 border-dashed mb-4">
+  Margin <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">{"m{side?}-{size}"}</Code>
+</Heading>
 <Box
   style={{
     display: "grid",
@@ -38,8 +39,11 @@ Use the following utilities to style `margin`, `padding`, `width`, and `height`.
 
 > Negative margin utilities are also available. Use `-m{side?}-{size}`
 
-## Padding
+<br />
 
+<Heading is="h4" className="flex items-center border-b border-grey-300 border-dashed mb-4">
+  Padding <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">{"p{side?}-{size}"}</Code>
+</Heading>
 <Box
   style={{
     display: "grid",
@@ -58,9 +62,17 @@ Use the following utilities to style `margin`, `padding`, `width`, and `height`.
 
 <ConfigPropertyList property="padding" />
 
-## Width
+<br />
 
-`w-{size}`
+<Heading
+  is="h4"
+  className="flex items-center border-b border-grey-300 border-dashed mb-4"
+>
+  Width{" "}
+  <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">
+    {"w-{size}"}
+  </Code>
+</Heading>
 
 > Not all sizes shown below. Refer to the properties further down for all possible width sizes.
 
@@ -84,11 +96,19 @@ Use the following utilities to style `margin`, `padding`, `width`, and `height`.
   <WidthBox widthModifier="w-full" />
 </Box>
 
-<ConfigPropertyList property="height" />
+<ConfigPropertyList property="width" />
 
-## Height
+<br />
 
-`h-{size}`
+<Heading
+  is="h4"
+  className="flex items-center border-b border-grey-300 border-dashed mb-4"
+>
+  Height{" "}
+  <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">
+    {"h-{size}"}
+  </Code>
+</Heading>
 
 > Not all sizes shown below. Refer to the properties further down for all possible height sizes.
 

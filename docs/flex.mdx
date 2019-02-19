@@ -3,16 +3,18 @@ name: Flexbox
 menu: Utilities
 ---
 
-import { Box } from "../src"
+import { Box, Paragraph } from "../src"
 import FlexBox from "./components/FlexBox"
+import SectionHeading from "./components/SectionHeading"
 
 # Flexbox
 
-Use the `flex` and `inline-flex` classes to control the display of your component.
+Use the `flex` and `inline-flex` classes to control the display of your component. Then, add any of the following utility classes to control the item distribution.
 
-## Direction
+<SectionHeading>Direction</SectionHeading>
 
 <Box
+  className="mb-8"
   style={{
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
@@ -25,25 +27,27 @@ Use the `flex` and `inline-flex` classes to control the display of your componen
   <FlexBox even stretch flexModifier="flex-col-reverse" />
 </Box>
 
-## Align Items
+<SectionHeading>Wrapping</SectionHeading>
 
 <Box
+  className="mb-8"
   style={{
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
     gridGap: "1rem",
   }}
 >
-  <FlexBox flexModifier="items-start" />
-  <FlexBox flexModifier="items-center" />
-  <FlexBox flexModifier="items-end" />
-  <FlexBox flexModifier="items-stretch" />
-  <FlexBox flexModifier="items-baseline" />
+  <FlexBox even flexModifier="flex-no-wrap" count="10" />
+  <FlexBox even flexModifier="flex-wrap" count="10" />
+  <FlexBox even flexModifier="flex-wrap-reverse" count="10" />
 </Box>
 
-## Justify Content
-
+<SectionHeading>Justify Content</SectionHeading>
+<Paragraph>
+  Used to control positioning of items on the main axis.
+</Paragraph>
 <Box
+  className="mb-8"
   style={{
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
@@ -55,4 +59,24 @@ Use the `flex` and `inline-flex` classes to control the display of your componen
   <FlexBox even flexModifier="justify-end" />
   <FlexBox even flexModifier="justify-between" />
   <FlexBox even flexModifier="justify-around" />
+</Box>
+
+<SectionHeading>Align Items</SectionHeading>
+<Paragraph>
+  Used to control positioning of items on the cross axis.
+</Paragraph>
+
+<Box
+  className="mb-8"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
+    gridGap: "1rem",
+  }}
+>
+  <FlexBox flexModifier="items-start" />
+  <FlexBox flexModifier="items-center" />
+  <FlexBox flexModifier="items-end" />
+  <FlexBox flexModifier="items-stretch" />
+  <FlexBox flexModifier="items-baseline" />
 </Box>

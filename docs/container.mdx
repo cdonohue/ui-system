@@ -13,30 +13,20 @@ import { Container, Image, Heading, Text, Button } from "../src"
 
 <PropsTable of={Container} />
 
-<Playground>
-  <Container is="section">
-    <Container className="bg-indigo rounded text-white p-4" is="header">
-      Header
+<Container is="section" className="text-sm">
+  <Container className="bg-indigo-400 rounded text-white p-4" is="header">
+    Header
+  </Container>
+  <Container className="flex py-4">
+    <Container className="bg-indigo-100 rounded h-auto w-2/3 p-4" is="article">
+      Article
     </Container>
-    <Container className="flex py-4">
-      <Container
-        className="bg-crazy-color rounded h-auto w-2/3 p-4"
-        is="article"
-      >
-        Article
-      </Container>
-      <Container className="w-1/3 pl-4">
-        <Container className="bg-grey-lighter rounded h-16 p-4">Div</Container>
-        <Container className="bg-grey-lighter rounded mt-4 h-16 p-4">
-          Div
-        </Container>
-      </Container>
-    </Container>
-    <Container
-      className="bg-indigo-darker rounded text-sm text-white p-4"
-      is="footer"
-    >
-      Footer
+    <Container className="w-1/3 pl-4">
+      <Container className="bg-grey-200 rounded h-16 p-4">Div</Container>
+      <Container className="bg-grey-200 rounded mt-4 h-16 p-4">Div</Container>
     </Container>
   </Container>
-</Playground>
+  <Container className="bg-indigo-600 rounded text-white p-4" is="footer">
+    Footer
+  </Container>
+</Container>

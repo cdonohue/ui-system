@@ -52,7 +52,7 @@ export default function ColorSwatch(props) {
         }
 
         return (
-          <Box className="rounded overflow-hidden shadow flex">
+          <Box className="rounded overflow-hidden shadow-md flex">
             <Box className={`flex-grow relative shadow flex flex-col`}>
               <Box
                 className={`flex-grow h-24 flex flex-col justify-end items-start bg-${color}-400 bg-${color}`}
