@@ -1,0 +1,32 @@
+---
+name: Size Observer
+---
+
+# Size Observer
+
+import { Playground } from "docz"
+
+import { Box, SizeObserver } from "../src"
+
+<Playground>
+  <SizeObserver>
+    {({ width }) => (
+      <Box
+        className={`${
+          width < 400
+            ? "p-2 text-sm bg-blue-200 rounded-sm"
+            : "p-4 text-base bg-blue-400 text-white rounded-lg"
+        }`}
+      >
+        Typewriter jianbing tumeric keffiyeh, hexagon cred you probably haven't
+        heard of them snackwave glossier actually. Hammock DIY godard vape
+        waistcoat franzen copper mug. Semiotics thundercats humblebrag,
+        shoreditch taiyaki organic sustainable tacos godard subway tile
+        chicharrones. Keytar cred selfies disrupt. Portland gastropub synth
+        godard prism la croix. Dreamcatcher 3 wolf moon raw denim selfies
+        freegan butcher blog, listicle plaid banjo hammock venmo asymmetrical
+        man bun.
+      </Box>
+    )}
+  </SizeObserver>
+</Playground>

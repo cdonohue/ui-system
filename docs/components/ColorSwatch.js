@@ -8,9 +8,11 @@ export default function ColorSwatch(props) {
       {({ config }) => {
         const { color } = props
 
-        const hex = config.colors[`${color}-400`] || config.colors[`${color}`]
+        const hex =
+          config.baseValues.colors[`${color}-400`] ||
+          config.baseValues.colors[`${color}`]
 
-        const relatedColors = Object.keys(config.colors).filter(
+        const relatedColors = Object.keys(config.baseValues.colors).filter(
           (colorName) => colorName.includes(color) && color !== colorName
         )
 
@@ -23,7 +25,7 @@ export default function ColorSwatch(props) {
             return (
               <Box className="flex flex-col">
                 {relatedColors.map((relatedColor) => {
-                  const hex = config.colors[relatedColor]
+                  const hex = config.baseValues.colors[relatedColor]
 
                   const [name, level] = relatedColor.split("-")
 

@@ -1,19 +1,23 @@
 import React from "react"
 
-import { Heading } from "../../src"
+import { Box, Code, Heading, Text } from "../../src"
 
-export default function SectionHeading({
-  children,
-  className,
-  ...remainingProps
-}) {
+export default function SectionHeading({ children, pattern }) {
   return (
     <Heading
       is="h4"
-      className={`flex items-center border-b border-grey-300 border-dashed mt-8 mb-4 ${className}`}
-      {...remainingProps}
+      className={`border-b border-gray-300 border-dashed mt-8 mb-4`}
     >
-      {children}
+      <Box>{children}</Box>
+      {!!pattern && (
+        <Code className="text-base px-2 py-1 rounded bg-gray-200">
+          {pattern.split("").map((char) => (
+            <Text className={`text-gray-${char.match(/[{}|?]/) ? "400" : 600}`}>
+              {char}
+            </Text>
+          ))}
+        </Code>
+      )}
     </Heading>
   )
 }

@@ -1,10 +1,10 @@
 export default function generate(config) {
-  const { tracking = {} } = config
+  const { letterSpacing = {} } = config
 
-  return Object.keys(tracking).reduce((classes, modifier) => {
+  return Object.keys(letterSpacing).reduce((classes, modifier) => {
     return {
       ...classes,
-      [`tracking-${modifier}`]: [`letter-spacing: ${tracking[modifier]}`],
+      [`tracking-${modifier}`]: [`letter-spacing: ${letterSpacing[modifier]}`],
     }
   }, {})
 }

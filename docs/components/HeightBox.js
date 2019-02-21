@@ -8,7 +8,7 @@ export default function HeightBox({ heightModifier }) {
         {heightModifier}
       </Box>
       <Box
-        className={`bg-yellow-200 rounded border border-yellow-500 text-yellow-600 w-full font-mono border-4 ${heightModifier}`}
+        className={`bg-yellow-200 rounded border-yellow-400 text-yellow-600 w-full font-mono border-4 ${heightModifier}`}
       />
     </Box>
   )

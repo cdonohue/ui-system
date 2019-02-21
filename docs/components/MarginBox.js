@@ -12,7 +12,7 @@ export default function MarginBox({ caption, pattern, marginModifier }) {
       </Box>
       <Box className="bg-orange-200 rounded border border-orange-200">
         <Box
-          className={`h-8 px-2 bg-white rounded border border-orange-400 border-4 ${marginModifier}`}
+          className={`h-8 px-2 bg-white rounded border-orange-300 border-4 ${marginModifier}`}
         />
       </Box>
     </Box>

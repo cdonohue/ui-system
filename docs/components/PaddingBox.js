@@ -11,7 +11,7 @@ export default function PaddingBox({ caption, pattern, paddingModifier }) {
         {pattern}
       </Box>
       <Box
-        className={`bg-green-200 rounded border border-green-400 border-4 ${paddingModifier}`}
+        className={`bg-green-200 rounded border-green-300 border-4 ${paddingModifier}`}
       >
         <Box className="h-8 bg-white" />
       </Box>

@@ -1,9 +1,9 @@
 import React from "react"
 
 import generateModifiers from "../modifiers"
-import baseConfig from "../modifiers/config"
+import baseConfig from "../modifiers/baseConfig"
 
-const baseModifiers = generateModifiers(baseConfig)
+const baseModifiers = generateModifiers(baseConfig.baseValues)
 
 const ConfigContext = React.createContext({
   config: baseConfig,
@@ -24,7 +24,7 @@ export class ConfigProvider extends React.Component {
 
       this.setState({
         config: providedConfig,
-        modifiers: generateModifiers(providedConfig),
+        modifiers: generateModifiers(providedConfig.baseValues),
       })
     }
   }

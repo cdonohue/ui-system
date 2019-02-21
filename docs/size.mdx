@@ -15,12 +15,7 @@ import { Box, Heading, Container, ConfigConsumer, Code } from "../src"
 
 Use the following utilities to style `width`, and `height`.
 
-<SectionHeading>
-  Width{" "}
-  <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">
-    {"w-{size}"}
-  </Code>
-</SectionHeading>
+<SectionHeading pattern="w-{size}">Width</SectionHeading>
 
 > Not all sizes shown below. Refer to the properties further down for all possible width sizes.
 
@@ -48,12 +43,19 @@ Use the following utilities to style `width`, and `height`.
 
 <br />
 
-<SectionHeading>
-  Height{" "}
-  <Code className="text-base ml-4 px-2 py-1 rounded bg-grey-200 text-grey-500">
-    {"h-{size}"}
-  </Code>
-</SectionHeading>
+<SectionHeading pattern="min-w-{size}">Min Width</SectionHeading>
+
+<ConfigPropertyList property="minWidth" />
+
+<br />
+
+<SectionHeading pattern="max-w-{size}">Max Width</SectionHeading>
+
+<ConfigPropertyList property="maxWidth" />
+
+<br />
+
+<SectionHeading pattern="h-{size}">Height</SectionHeading>
 
 > Not all sizes shown below. Refer to the properties further down for all possible height sizes.
 
@@ -80,3 +82,15 @@ Use the following utilities to style `width`, and `height`.
 </Box>
 
 <ConfigPropertyList property="height" />
+
+<br />
+
+<SectionHeading pattern="min-h-{size}">Min Height</SectionHeading>
+
+<ConfigPropertyList property="minHeight" />
+
+<br />
+
+<SectionHeading pattern="max-h-{size}">Max Height</SectionHeading>
+
+<ConfigPropertyList property="maxHeight" />

@@ -2,17 +2,27 @@ import React from "react"
 import PropTypes from "prop-types"
 import { css } from "emotion"
 
-import reset from "../modifiers/reset"
 import { ConfigConsumer } from "../ConfigContext"
 
-function mapRules(rules, isImportant = false) {
+function mapRules(rules = [], isImportant = false) {
   return rules.map((rule) => {
     return isImportant ? `${rule} !important;` : `${rule};`
   })
 }
 
-function getActiveModifiers(classList, modifiers) {
-  return classList.split(" ").filter((name) => modifiers[name])
+function getActiveModifiers(classList, modifiers, composites) {
+  const activeComposites = classList
+    .split(" ")
+    .filter((name) => composites[name])
+
+  return classList
+    .split(" ")
+    .filter((name) => modifiers[name])
+    .concat(
+      activeComposites.reduce((allComposites, composite) => {
+        return allComposites.concat(composites[composite])
+      }, [])
+    )
 }
 
 function Box(props) {
@@ -27,11 +37,16 @@ function Box(props) {
   return (
     <ConfigConsumer>
       {({ config, modifiers }) => {
+        const { composites = {}, resets = {} } = config
         // Get base reset
-        const baseReset = mapRules(reset.base, important).join("")
+        const baseReset = mapRules(resets.base, important).join("")
 
         // Get array of active modifiers
-        const activeModifiers = getActiveModifiers(className, modifiers)
+        const activeModifiers = getActiveModifiers(
+          className,
+          modifiers,
+          composites
+        )
 
         const classList = className
           .split(" ")
@@ -44,10 +59,8 @@ function Box(props) {
 
         // Check for id and bundle styles together
         if (remainingProps.id) {
-          remainingProps["data-ui-system-component"] = true
-
           const normalizedStyles = css`
-            #${remainingProps.id}&[data-ui-system-component] {
+            #${remainingProps.id}& {
               ${baseReset}
               ${activeModifierRules.join("")}
             }
