@@ -20,104 +20,78 @@ import SectionHeading from "./components/SectionHeading"
 import ConfigPropertyList from "./components/ConfigPropertyList"
 import FontBox from "./components/FontBox"
 import LetterBox from "./components/LetterBox"
+import TypeUtilityBox from "./components/TypeUtilityBox"
 
 # Typography
 
 <SectionHeading pattern="font-{family}">Font Family</SectionHeading>
 
-<Box
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-    gridGap: "1rem",
-  }}
->
-  <FontBox caption="Sans" modifier="font-sans" />
-  <FontBox caption="Serif" modifier="font-serif" />
-  <FontBox caption="Mono" modifier="font-mono" />
-</Box>
+<ConfigConsumer>
+  {({ config }) => (
+    <Box
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+        gridGap: "1rem",
+      }}
+    >
+      {Object.keys(config.baseValues.fonts).map((fontClass) => (
+        <FontBox
+          caption={fontClass}
+          modifier={`font-${fontClass}`}
+          fonts={config.baseValues.fonts[fontClass]}
+        />
+      ))}
+    </Box>
+  )}
+</ConfigConsumer>
 
 <SectionHeading pattern="leading-{size}">Line Height</SectionHeading>
 
-<Box
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-    gridGap: "1rem",
-  }}
->
-  <FontBox
-    example="Farm-to-table flannel keytar brooklyn vinyl, bicycle rights kombucha venmo tilde authentic street art meggings."
-    caption="None"
-    modifier="leading-none"
-  />
-  <FontBox
-    example="Farm-to-table flannel keytar brooklyn vinyl, bicycle rights kombucha venmo tilde authentic street art meggings."
-    caption="Tight"
-    modifier="leading-tight"
-  />
-  <FontBox
-    example="Farm-to-table flannel keytar brooklyn vinyl, bicycle rights kombucha venmo tilde authentic street art meggings."
-    caption="Snug"
-    modifier="leading-snug"
-  />
-  <FontBox
-    example="Farm-to-table flannel keytar brooklyn vinyl, bicycle rights kombucha venmo tilde authentic street art meggings."
-    caption="Normal"
-    modifier="leading-normal"
-  />
-  <FontBox
-    example="Farm-to-table flannel keytar brooklyn vinyl, bicycle rights kombucha venmo tilde authentic street art meggings."
-    caption="Relaxed"
-    modifier="leading-relaxed"
-  />
-  <FontBox
-    example="Farm-to-table flannel keytar brooklyn vinyl, bicycle rights kombucha venmo tilde authentic street art meggings."
-    caption="Loose"
-    modifier="leading-loose"
-  />
-</Box>
+<ConfigConsumer>
+  {({ config }) => (
+    <Box
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+        gridGap: "1rem",
+      }}
+    >
+      {Object.keys(config.baseValues.lineHeights).map((size) => (
+        <TypeUtilityBox
+          caption={size}
+          example={
+            "Portland flannel trust fund plaid kitsch. Hot chicken everyday carry williamsburg YOLO green juice lomo. Bicycle rights man bun +1 shabby chic migas salvia listicle polaroid paleo."
+          }
+          modifier={`leading-${size}`}
+          value={config.baseValues.lineHeights[size]}
+        />
+      ))}
+    </Box>
+  )}
+</ConfigConsumer>
 
 <SectionHeading pattern="tracking-{size}">Letter Spacing</SectionHeading>
 
-<Box
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-    gridGap: "1rem",
-  }}
->
-  <FontBox
-    example="Cronut cray knausgaard banh mi"
-    caption="Tighter"
-    modifier="tracking-tighter"
-  />
-  <FontBox
-    example="Cronut cray knausgaard banh mi"
-    caption="Tight"
-    modifier="tracking-tight"
-  />
-  <FontBox
-    example="Cronut cray knausgaard banh mi"
-    caption="Normal"
-    modifier="tracking-normal"
-  />
-  <FontBox
-    example="Cronut cray knausgaard banh mi"
-    caption="Wide"
-    modifier="tracking-wide"
-  />
-  <FontBox
-    example="Cronut cray knausgaard banh mi"
-    caption="Wider"
-    modifier="tracking-wider"
-  />
-  <FontBox
-    example="Cronut cray knausgaard banh mi"
-    caption="Widest"
-    modifier="tracking-widest"
-  />
-</Box>
+<ConfigConsumer>
+  {({ config }) => (
+    <Box
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+        gridGap: "1rem",
+      }}
+    >
+      {Object.keys(config.baseValues.letterSpacing).map((size) => (
+        <TypeUtilityBox
+          caption={size}
+          modifier={`tracking-${size}`}
+          value={config.baseValues.letterSpacing[size]}
+        />
+      ))}
+    </Box>
+  )}
+</ConfigConsumer>
 
 <SectionHeading pattern="text-{size}">Font Sizes</SectionHeading>
 
@@ -126,12 +100,16 @@ import LetterBox from "./components/LetterBox"
     <Box
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, 1fr)",
+        gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
         gridGap: "1rem",
       }}
     >
       {Object.keys(config.baseValues.textSizes).map((size) => (
-        <LetterBox caption={size} modifier={`text-${size}`} />
+        <LetterBox
+          caption={size}
+          modifier={`text-${size}`}
+          value={config.baseValues.textSizes[size]}
+        />
       ))}
     </Box>
   )}

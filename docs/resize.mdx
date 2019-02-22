@@ -6,27 +6,44 @@ name: Size Observer
 
 import { Playground } from "docz"
 
-import { Box, SizeObserver } from "../src"
+import { Box, Code, Heading, SizeObserver } from "../src"
+
+Resize the box below to see the observed changes
 
 <Playground>
   <SizeObserver>
-    {({ width }) => (
-      <Box
-        className={`${
-          width < 400
-            ? "p-2 text-sm bg-blue-200 rounded-sm"
-            : "p-4 text-base bg-blue-400 text-white rounded-lg"
-        }`}
-      >
-        Typewriter jianbing tumeric keffiyeh, hexagon cred you probably haven't
-        heard of them snackwave glossier actually. Hammock DIY godard vape
-        waistcoat franzen copper mug. Semiotics thundercats humblebrag,
-        shoreditch taiyaki organic sustainable tacos godard subway tile
-        chicharrones. Keytar cred selfies disrupt. Portland gastropub synth
-        godard prism la croix. Dreamcatcher 3 wolf moon raw denim selfies
-        freegan butcher blog, listicle plaid banjo hammock venmo asymmetrical
-        man bun.
-      </Box>
-    )}
+    {(props) => {
+      const { bottom, height, left, right, top, width, x, y } = props
+      return (
+        <Box
+          className={`p-4 rounded-lg text-white ${
+            width < 400
+              ? "text-sm bg-orange-400"
+              : "text-base bg-blue-400"
+          }`}
+        >
+          <Box
+            style={{
+              display: "grid",
+              gridGap: "1rem",
+              gridTemplateColumns: "repeat(auto-fill, minmax(125px, 1fr))",
+            }}
+          >
+            {["bottom", "height", "left", "right", "top", "width", "x", "y"].map(dimension => (
+
+            <Box className="overflow-hidden text-center rounded">
+              <Heading is="h6" className="capitalize p-2 bg-transparent-shade-100 text-transparent-tint-400">
+                {dimension}
+              </Heading>
+              <Box className="p-2 font-mono h-auto flex items-center justify-center bg-transparent-shade-300">
+                <Box>{props[dimension]}px</Box>
+              </Box>
+            </Box>
+            ))}
+          </Box>
+        </Box>
+      )
+    }}
+
   </SizeObserver>
 </Playground>

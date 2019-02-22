@@ -46,15 +46,18 @@ export default class SizeObserver extends React.Component {
 
         const component = elementMap.get(entry.target)
 
+        console.log("BoundingClientRect:", entry.target.getBoundingClientRect())
+        console.info("ContentRect:", entry.contentRect)
+
         component.setState({
-          width,
-          height,
-          x,
-          y,
-          top,
-          right,
-          bottom,
-          left,
+          width: Math.round(width),
+          height: Math.round(height),
+          x: Math.round(x),
+          y: Math.round(y),
+          top: Math.round(top),
+          right: Math.round(right),
+          bottom: Math.round(bottom),
+          left: Math.round(left),
         })
       })
     }

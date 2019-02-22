@@ -132,15 +132,15 @@ export default {
       ],
     },
     textSizes: {
-      tiny: ".422rem", // 6.76px
-      xs: ".563rem", // 9px
-      sm: ".75rem", // 12px
-      base: "1rem", // 16px
-      lg: "1.333rem", // 21.33px
-      xl: "1.777rem", // 28.43px
-      "2xl": "2.369rem", // 37.90px
-      "3xl": "3.157rem", // 50.52px
-      "4xl": "4.209rem", // 67.34px
+      tiny: ".512rem",
+      xs: ".64rem",
+      sm: ".8rem",
+      base: "1rem",
+      lg: "1.25rem",
+      xl: "1.5625rem",
+      "2xl": "1.953125rem",
+      "3xl": "2.44140625rem",
+      "4xl": "3.051757812rem",
     },
     typeScales: {
       minorSecond: 1.067,

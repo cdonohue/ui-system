@@ -1,18 +1,27 @@
 import React from "react"
-import { Box, Heading, Paragraph } from "../../src"
+import { Box, Text, Heading, Paragraph } from "../../src"
 
 export default function LetterBox({
   caption,
-  example = "The face of the moon was in shadow.",
+  example = "Aa",
   modifier,
+  value,
 }) {
   return (
-    <Box className="bg-purple-100 p-2 rounded-lg">
-      <Box is="code" className="font-mono text-purple-600 text-sm block">
-        {modifier}
+    <Box className="rounded-lg border font-sans overflow-hidden">
+      <Box
+        className={`h-32 flex items-center relative justify-center ${modifier}`}
+      >
+        <Box className="absolute pin-t pin-r m-2 py-1 px-2 rounded-sm bg-gray-200 font-mono text-gray-500 inline-block mt-2 text-xs">
+          {value}
+        </Box>
+        <Box className="mt-6">{example}</Box>
       </Box>
-      <Box className={`bg-white p-2 rounded mt-2 text-shadow ${modifier}`}>
-        {example}
+      <Box
+        is="code"
+        className="bg-gray-200 p-4 font-mono text-gray-600 text-sm block"
+      >
+        <Box>{modifier}</Box>
       </Box>
     </Box>
   )
